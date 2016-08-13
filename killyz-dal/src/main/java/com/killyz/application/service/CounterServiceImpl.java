@@ -36,5 +36,4 @@ public class CounterServiceImpl implements CounterService {
         query.addCriteria(Criteria.where("name").is(counterName));
         return mongoTemplate.count(query, counterCollectionName) > 0;
     }
-
 }
