@@ -34,7 +34,7 @@ public class CounterManagerImpl implements CounterManager {
     }
 
     @Override
-    public long getSequence(String counterName) {
+    public synchronized long getSequence(String counterName) {
         if (!counterService.isCounterExists(counterName))
             throw new RuntimeException("Counter: " + counterName + " doesn't exists");
 

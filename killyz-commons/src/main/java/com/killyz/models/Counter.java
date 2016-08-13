@@ -6,6 +6,11 @@ public class Counter {
     private String name;
     private long sequence;
 
+    public Counter(String name) {
+        this.name = name;
+        this.sequence = 0;
+    }
+
     public String get_id() {
         return _id;
     }
