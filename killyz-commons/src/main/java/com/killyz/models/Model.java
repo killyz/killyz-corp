@@ -7,7 +7,7 @@ public class Model {
     private long _id;
     private String imageUrl;
     private long artistId;
-    private List<Long> productIds;
+    private List<Long> upcList;
     private List<String> tags;
 
     public long get_id() {
@@ -34,12 +34,12 @@ public class Model {
         this.artistId = artistId;
     }
 
-    public List<Long> getProductIds() {
-        return productIds;
+    public List<Long> getUpcList() {
+        return upcList;
     }
 
-    public void setProductIds(List<Long> productIds) {
-        this.productIds = productIds;
+    public void setUpcList(List<Long> upcList) {
+        this.upcList = upcList;
     }
 
     public List<String> getTags() {
