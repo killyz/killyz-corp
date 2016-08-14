@@ -7,6 +7,11 @@ import javax.servlet.ServletRegistration;
 
 public class ApiInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
+    private static final String LOCATION = "C:\\Users\\yzimmerman\\Killyz-Drive\\Warehouse\\temp";
+    private static final long MAX_FILE_SIZE = 5242880;
+    private static final long MAX_REQUEST_SIZE = 20971520;
+    private static final int FILE_SIZE_THRESHOLD = 0;
+
     @Override
     protected Class<?>[] getRootConfigClasses() {
         return new Class[] {ApiConfiguration.class};
@@ -30,13 +35,5 @@ public class ApiInitializer extends AbstractAnnotationConfigDispatcherServletIni
     private MultipartConfigElement getMultipartConfigElement() {
         return new MultipartConfigElement( LOCATION, MAX_FILE_SIZE, MAX_REQUEST_SIZE, FILE_SIZE_THRESHOLD);
     }
-
-    private static final String LOCATION = "D:\\Drive\\Warehouse\\temp"; // Temporary location where files will be stored
-
-    private static final long MAX_FILE_SIZE = 5242880; // 5MB : Max file size.
-    // Beyond that size spring will throw exception.
-    private static final long MAX_REQUEST_SIZE = 20971520; // 20MB : Total request size containing Multi part.
-
-    private static final int FILE_SIZE_THRESHOLD = 0; // Size threshold after which files will be written to disk
 
 }

@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+
 @RestController
 @RequestMapping("/model")
 public class ModelController {
@@ -25,7 +27,7 @@ public class ModelController {
     }
 
     @RequestMapping(value = "/new", method = RequestMethod.POST)
-    public void saveModel(@RequestParam("image") MultipartFile file, @RequestBody Model model) {
+    public void saveModel(@RequestParam("image") MultipartFile file, @RequestBody Model model) throws IOException {
         long modelId = imageManager.uploadImage(file);
         model.set_id(modelId);
         modelManager.save(model);
