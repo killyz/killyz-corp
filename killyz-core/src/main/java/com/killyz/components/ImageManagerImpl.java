@@ -26,7 +26,7 @@ public class ImageManagerImpl implements ImageManager {
         ByteArrayInputStream inputStream = new ByteArrayInputStream(imageFile.getBytes());
         BufferedImage bufferedImage = ImageIO.read(inputStream);
         long modelId = counterManager.getSequence(modelsCounterName);
-        ImageIO.write(bufferedImage, "jpg", new File("C:\\Users\\yzimmerman\\Killyz-Drive\\Warehouse\\models\\" + modelId + ".jpg"));
+        ImageIO.write(bufferedImage, "jpg", new File("D:\\killyzdb\\models" + modelId + ".jpg"));
         return modelId;
     }
 }

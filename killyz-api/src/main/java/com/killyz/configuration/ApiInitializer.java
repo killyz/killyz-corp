@@ -7,7 +7,7 @@ import javax.servlet.ServletRegistration;
 
 public class ApiInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
-    private static final String LOCATION = "C:\\Users\\yzimmerman\\Killyz-Drive\\Warehouse\\temp";
+    private static final String LOCATION = "D:\\killyzdb\\temp";
     private static final long MAX_FILE_SIZE = 5242880;
     private static final long MAX_REQUEST_SIZE = 20971520;
     private static final int FILE_SIZE_THRESHOLD = 0;
