@@ -36,5 +36,4 @@ public class ModelController {
         model.set_id(modelId);
         modelManager.save(model);
     }
-
 }
