@@ -7,4 +7,5 @@ import java.io.IOException;
 public interface ImageManager {
 
     long uploadImage(MultipartFile imageFile) throws IOException;
+    String getImageUrl(long modelId);
 }
