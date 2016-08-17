@@ -1,4 +1,4 @@
-package com.killyz.components;
+package com.killyz.components.artists;
 
 import com.killyz.models.Artist;
 

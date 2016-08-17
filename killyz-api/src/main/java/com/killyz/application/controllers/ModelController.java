@@ -1,7 +1,7 @@
 package com.killyz.application.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.killyz.components.ImageManager;
+import com.killyz.components.images.ImageManager;
 import com.killyz.components.models.ModelManager;
 import com.killyz.models.Model;
 import org.springframework.beans.factory.annotation.Autowired;

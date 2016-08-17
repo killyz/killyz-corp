@@ -1,4 +1,4 @@
-package com.killyz.components;
+package com.killyz.components.images;
 
 import org.springframework.web.multipart.MultipartFile;
 

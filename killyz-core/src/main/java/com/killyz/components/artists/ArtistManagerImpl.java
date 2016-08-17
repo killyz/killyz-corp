@@ -1,6 +1,7 @@
-package com.killyz.components;
+package com.killyz.components.artists;
 
 import com.killyz.application.service.ArtistService;
+import com.killyz.components.counter.CounterManager;
 import com.killyz.models.Artist;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

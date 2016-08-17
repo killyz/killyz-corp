@@ -1,6 +1,6 @@
 package com.killyz.application.controllers;
 
-import com.killyz.components.ArtistManager;
+import com.killyz.components.artists.ArtistManager;
 import com.killyz.models.Artist;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
