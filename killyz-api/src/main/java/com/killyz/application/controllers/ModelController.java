@@ -1,7 +1,6 @@
 package com.killyz.application.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.killyz.components.images.ImageManager;
 import com.killyz.components.models.ModelManager;
 import com.killyz.models.Model;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,23 +16,17 @@ import java.io.IOException;
 @RequestMapping("/model")
 public class ModelController {
 
-    private final String modelCounterName = "models";
     private final ModelManager modelManager;
-    private final ImageManager imageManager;
 
     @Autowired
-    public ModelController(ModelManager modelManager, ImageManager imageManager) {
+    public ModelController(ModelManager modelManager) {
         this.modelManager = modelManager;
-        this.imageManager = imageManager;
     }
 
     @RequestMapping(value = "/new", method = RequestMethod.POST)
-    public void saveModel(MultipartHttpServletRequest multipartHttpServletRequest) throws IOException {
-        MultipartFile image = multipartHttpServletRequest.getFile("image");
-        long modelId = imageManager.uploadImage(image);
-        Model model = new ObjectMapper().readValue(multipartHttpServletRequest.getParameter("model"), Model.class);
-        model.setImageUrl(imageManager.getImageUrl(modelId));
-        model.set_id(modelId);
-        modelManager.save(model);
+    public void saveModel(MultipartHttpServletRequest request) throws IOException {
+        Model model = new ObjectMapper().readValue(request.getParameter("model"), Model.class);
+        MultipartFile image = request.getFile("image");
+        modelManager.save(model, image);
     }
 }
