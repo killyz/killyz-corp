@@ -1,6 +1,6 @@
-package com.killyz.components.counter;
+package com.killyz.components.counters;
 
-import com.killyz.application.service.CounterService;
+import com.killyz.application.service.counters.CounterService;
 import com.killyz.models.Counter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

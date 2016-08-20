@@ -1,6 +1,6 @@
 package com.killyz.components.images;
 
-import com.killyz.components.counter.CounterManager;
+import com.killyz.components.counters.CounterManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;

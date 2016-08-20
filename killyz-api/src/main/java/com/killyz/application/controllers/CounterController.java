@@ -1,6 +1,6 @@
 package com.killyz.application.controllers;
 
-import com.killyz.components.counter.CounterManager;
+import com.killyz.components.counters.CounterManager;
 import com.killyz.models.Counter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

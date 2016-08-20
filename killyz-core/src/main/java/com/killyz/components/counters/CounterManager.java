@@ -1,4 +1,4 @@
-package com.killyz.components.counter;
+package com.killyz.components.counters;
 
 import com.killyz.models.Counter;
 

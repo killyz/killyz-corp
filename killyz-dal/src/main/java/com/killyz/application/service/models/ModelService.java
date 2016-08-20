@@ -1,4 +1,4 @@
-package com.killyz.application.service;
+package com.killyz.application.service.models;
 
 import com.killyz.models.Model;
 

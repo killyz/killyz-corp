@@ -1,4 +1,4 @@
-package com.killyz.application.service;
+package com.killyz.application.service.counters;
 
 import com.killyz.models.Counter;
 import org.springframework.beans.factory.annotation.Autowired;

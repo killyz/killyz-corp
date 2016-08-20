@@ -1,7 +1,7 @@
 package com.killyz.components.models;
 
-import com.killyz.application.service.ArtistService;
-import com.killyz.application.service.ModelService;
+import com.killyz.application.service.artists.ArtistService;
+import com.killyz.application.service.models.ModelService;
 import com.killyz.components.images.ImageManager;
 import com.killyz.models.Model;
 import org.springframework.beans.factory.annotation.Autowired;

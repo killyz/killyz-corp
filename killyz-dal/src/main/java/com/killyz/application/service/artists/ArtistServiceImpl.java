@@ -1,4 +1,4 @@
-package com.killyz.application.service;
+package com.killyz.application.service.artists;
 
 import com.killyz.models.Artist;
 import org.springframework.beans.factory.annotation.Autowired;
