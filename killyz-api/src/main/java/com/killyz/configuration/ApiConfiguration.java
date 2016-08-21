@@ -25,7 +25,8 @@ public class ApiConfiguration extends WebMvcConfigurerAdapter {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("http://localhost:63343");
+                .allowedOrigins("http://localhost:63343")
+                .allowedOrigins("http://localhost:63344");
     }
 
 }

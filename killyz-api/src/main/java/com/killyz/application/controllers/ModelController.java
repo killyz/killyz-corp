@@ -11,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import java.io.IOException;
+import java.util.List;
 
 @RestController
 @RequestMapping("/model")
@@ -28,5 +29,10 @@ public class ModelController {
         Model model = new ObjectMapper().readValue(request.getParameter("model"), Model.class);
         MultipartFile image = request.getFile("image");
         modelManager.save(model, image);
+    }
+
+    @RequestMapping(value = "/getAll", method = RequestMethod.GET)
+    public List<Model> getAllModels() {
+        return modelManager.getAll();
     }
 }

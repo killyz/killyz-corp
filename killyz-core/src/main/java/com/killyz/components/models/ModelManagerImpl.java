@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.List;
 
 @Component
 public class ModelManagerImpl implements ModelManager {
@@ -34,6 +35,11 @@ public class ModelManagerImpl implements ModelManager {
         model.set_id(modelId);
         model.setImageUrl(imageUrl);
         modelService.save(model);
+    }
+
+    @Override
+    public List<Model> getAll() {
+        return modelService.getAll();
     }
 }
 
