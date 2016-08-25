@@ -7,6 +7,8 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public class ArtistServiceImpl implements ArtistService {
 
@@ -36,5 +38,17 @@ public class ArtistServiceImpl implements ArtistService {
         Query query = new Query();
         query.addCriteria(Criteria.where("_id").is(artistId));
         return mongoTemplate.count(query, artistCollectionName) > 0;
+    }
+
+    @Override
+    public List<Artist> getAll() {
+        return mongoTemplate.find(new Query(), Artist.class, artistCollectionName);
+    }
+
+    @Override
+    public void delete(long artistId) {
+        Query query = new Query();
+        query.addCriteria(Criteria.where("_id").is(artistId));
+        mongoTemplate.remove(query, artistCollectionName);
     }
 }

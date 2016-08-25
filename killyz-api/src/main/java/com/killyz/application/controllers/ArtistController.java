@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/artist")
 public class ArtistController {
@@ -22,5 +24,15 @@ public class ArtistController {
     @RequestMapping(value = "/new", method = RequestMethod.POST)
     public void newArtist(@RequestBody Artist artist) {
         artistManager.saveArtist(artist);
+    }
+
+    @RequestMapping(value = "/getAll", method = RequestMethod.GET)
+    public List<Artist> getAllArtists() {
+        return artistManager.getAll();
+    }
+
+    @RequestMapping(value = "/delete", method = RequestMethod.POST)
+    public void deleteArtist(@RequestBody Artist artist) {
+        artistManager.deleteArtist(artist.get_id());
     }
 }

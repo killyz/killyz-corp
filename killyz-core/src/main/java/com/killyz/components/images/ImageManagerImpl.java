@@ -27,12 +27,13 @@ public class ImageManagerImpl implements ImageManager {
         ByteArrayInputStream inputStream = new ByteArrayInputStream(imageFile.getBytes());
         BufferedImage bufferedImage = ImageIO.read(inputStream);
         long modelId = counterManager.getSequence(modelsCounterName);
-        ImageIO.write(bufferedImage, "jpg", new File("C:\\killdb\\warehouse\\models\\" + modelId + ".jpg"));
+        ImageIO.write(bufferedImage, "jpg", new File("D:\\killdb\\models\\" + modelId + ".jpg"));
         return modelId;
     }
 
     @Override
     public String getImageUrl(long modelId) {
-        return "c:\\killdb\\warehouse\\models\\" + modelId + ".jpg";
+        return "ftp://10.0.0.2:58950/models/" + modelId + ".jpg";
     }
+
 }

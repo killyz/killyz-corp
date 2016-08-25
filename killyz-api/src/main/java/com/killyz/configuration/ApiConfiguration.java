@@ -22,11 +22,11 @@ public class ApiConfiguration extends WebMvcConfigurerAdapter {
         return resolver;
     }
 
-    @Override
-    public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**")
-                .allowedOrigins("http://localhost:63343")
-                .allowedOrigins("http://localhost:63344");
-    }
+//    @Override
+//    public void addCorsMappings(CorsRegistry registry) {
+//        registry.addMapping("/**")
+//                .allowedOrigins("http://localhost");
+////                .allowedOrigins("http://localhost:63344");
+//    }
 
 }

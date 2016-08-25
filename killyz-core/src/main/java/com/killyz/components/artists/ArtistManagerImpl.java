@@ -6,6 +6,8 @@ import com.killyz.models.Artist;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public class ArtistManagerImpl implements ArtistManager {
 
@@ -26,5 +28,15 @@ public class ArtistManagerImpl implements ArtistManager {
 
         artist.set_id(counterManager.getSequence(artistCounterName));
         artistService.save(artist);
+    }
+
+    @Override
+    public List<Artist> getAll() {
+        return artistService.getAll();
+    }
+
+    @Override
+    public void deleteArtist(long artistId) {
+        artistService.delete(artistId);
     }
 }
