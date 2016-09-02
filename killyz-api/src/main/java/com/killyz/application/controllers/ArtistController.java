@@ -2,14 +2,13 @@ package com.killyz.application.controllers;
 
 import com.killyz.components.artists.ArtistManager;
 import com.killyz.models.Artist;
+import com.killyz.models.PublicSlimArtist;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/artist")
 public class ArtistController {
@@ -21,6 +20,7 @@ public class ArtistController {
         this.artistManager = artistManager;
     }
 
+
     @RequestMapping(value = "/new", method = RequestMethod.POST)
     public void newArtist(@RequestBody Artist artist) {
         artistManager.saveArtist(artist);
@@ -29,6 +29,11 @@ public class ArtistController {
     @RequestMapping(value = "/getAll", method = RequestMethod.GET)
     public List<Artist> getAllArtists() {
         return artistManager.getAll();
+    }
+
+    @RequestMapping(value = "/getAllNames", method = RequestMethod.GET)
+    public List<PublicSlimArtist> getAllArtistNames() {
+        return artistManager.getAllArtistNames();
     }
 
     @RequestMapping(value = "/delete", method = RequestMethod.POST)

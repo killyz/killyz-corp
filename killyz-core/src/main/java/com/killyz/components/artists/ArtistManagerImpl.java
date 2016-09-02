@@ -3,10 +3,12 @@ package com.killyz.components.artists;
 import com.killyz.application.service.artists.ArtistService;
 import com.killyz.components.counters.CounterManager;
 import com.killyz.models.Artist;
+import com.killyz.models.PublicSlimArtist;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 public class ArtistManagerImpl implements ArtistManager {
@@ -33,6 +35,11 @@ public class ArtistManagerImpl implements ArtistManager {
     @Override
     public List<Artist> getAll() {
         return artistService.getAll();
+    }
+
+    @Override
+    public List<PublicSlimArtist> getAllArtistNames() {
+        return getAll().stream().map(PublicSlimArtist::new).collect(Collectors.toList());
     }
 
     @Override
