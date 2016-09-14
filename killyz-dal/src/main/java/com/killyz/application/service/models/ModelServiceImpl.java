@@ -3,6 +3,7 @@ package com.killyz.application.service.models;
 import com.killyz.models.Model;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Component;
 
@@ -25,7 +26,19 @@ public class ModelServiceImpl implements ModelService {
     }
 
     @Override
+    public List<Model> getAllForArtist(long artistId) {
+        Query query = new Query();
+        query.addCriteria(Criteria.where("artistId").is(artistId));
+        return mongoTemplate.find(query, Model.class, modelCollectionName);
+    }
+
+    @Override
     public List<Model> getAll() {
         return mongoTemplate.find(new Query(), Model.class, modelCollectionName);
+    }
+
+    @Override
+    public long getNumberOfModels() {
+        return mongoTemplate.count(new Query(), modelCollectionName);
     }
 }

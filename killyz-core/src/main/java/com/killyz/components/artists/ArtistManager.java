@@ -11,4 +11,5 @@ public interface ArtistManager {
     List<Artist> getAll();
     List<PublicSlimArtist> getAllArtistNames();
     void deleteArtist(long artistId);
+
 }

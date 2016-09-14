@@ -3,6 +3,7 @@ package com.killyz.components.artists;
 import com.killyz.application.service.artists.ArtistService;
 import com.killyz.components.counters.CounterManager;
 import com.killyz.models.Artist;
+import com.killyz.models.Counter;
 import com.killyz.models.PublicSlimArtist;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -28,6 +29,7 @@ public class ArtistManagerImpl implements ArtistManager {
         if (artistService.isArtistExists(artist))
             throw new RuntimeException("Cannot create artist. " + artist.getFirstName() + " " + artist.getLastName() + " already exists");
 
+        if (artistService.getNumberOfArtists() == 0) counterManager.resetCounter(artistCounterName);
         artist.set_id(counterManager.getSequence(artistCounterName));
         artistService.save(artist);
     }
@@ -46,4 +48,5 @@ public class ArtistManagerImpl implements ArtistManager {
     public void deleteArtist(long artistId) {
         artistService.delete(artistId);
     }
+
 }

@@ -9,5 +9,7 @@ import java.util.List;
 public interface ModelManager {
 
     void save(Model model, MultipartFile imageFile) throws IOException;
+    List<Model> getAllForArtist(long artistId);
     List<Model> getAll();
+    long getNumberOfModels();
 }

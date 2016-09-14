@@ -26,6 +26,7 @@ public class SupplierManagerImpl implements SupplierManager {
         if (supplierService.isSupplierExists(supplier.getNickName()))
             throw new RuntimeException("Supplier: " + supplier.getNickName() + " already exists");
 
+        resetCounterIfRequired();
         supplier.set_id(counterManager.getSequence(supplierCounterName));
         supplierService.save(supplier);
     }
@@ -38,5 +39,10 @@ public class SupplierManagerImpl implements SupplierManager {
     @Override
     public void delete(long supplierId) {
         supplierService.delete(supplierId);
+    }
+
+    private void resetCounterIfRequired() {
+        if (supplierService.getNumberOfSuppliers() == 0)
+            counterManager.resetCounter(supplierCounterName);
     }
 }

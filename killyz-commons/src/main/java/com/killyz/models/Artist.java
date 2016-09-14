@@ -7,6 +7,14 @@ public class Artist {
     private String lastName;
     private String email;
     private String portfolio;
+    private PaymentPlatform paymentPlatform;
+    private PaymentMethod paymentMethod;
+    private String billingAddress;
+    private Long modelCount;
+
+    public Artist() {
+        this.modelCount = 0L;
+    }
 
     public long get_id() {
         return _id;
@@ -46,5 +54,41 @@ public class Artist {
 
     public void setPortfolio(String portfolio) {
         this.portfolio = portfolio;
+    }
+
+    public PaymentPlatform getPaymentPlatform() {
+        return paymentPlatform;
+    }
+
+    public void setPaymentPlatform(PaymentPlatform paymentPlatform) {
+        this.paymentPlatform = paymentPlatform;
+    }
+
+    public PaymentMethod getPaymentMethod() {
+        return paymentMethod;
+    }
+
+    public void setPaymentMethod(PaymentMethod paymentMethod) {
+        this.paymentMethod = paymentMethod;
+    }
+
+    public String getBillingAddress() {
+        return billingAddress;
+    }
+
+    public void setBillingAddress(String billingAddress) {
+        this.billingAddress = billingAddress;
+    }
+
+    public Long getModelCount() {
+        return modelCount;
+    }
+
+    public void setModelCount(Long modelCount) {
+        this.modelCount = modelCount;
+    }
+
+    public void increaseModelCount() {
+        this.modelCount++;
     }
 }

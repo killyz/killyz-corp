@@ -43,4 +43,12 @@ public class CounterManagerImpl implements CounterManager {
         counterService.save(counter);
         return counter.getSequence();
     }
+
+    @Override
+    public Counter getCounter(String counterName) {
+        if (!counterService.isCounterExists(counterName))
+            throw new RuntimeException("Counter: " + counterName + " doesn't exists");
+
+        return counterService.get(counterName);
+    }
 }

@@ -1,14 +1,19 @@
 package com.killyz.models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Model {
 
     private long _id;
+    private String title;
     private String imageUrl;
     private long artistId;
     private List<Long> upcList;
-    private List<String> tags;
+
+    public Model() {
+        this.upcList = new ArrayList<>();
+    }
 
     public long get_id() {
         return _id;
@@ -16,6 +21,14 @@ public class Model {
 
     public void set_id(long _id) {
         this._id = _id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getImageUrl() {
@@ -40,13 +53,5 @@ public class Model {
 
     public void setUpcList(List<Long> upcList) {
         this.upcList = upcList;
-    }
-
-    public List<String> getTags() {
-        return tags;
-    }
-
-    public void setTags(List<String> tags) {
-        this.tags = tags;
     }
 }

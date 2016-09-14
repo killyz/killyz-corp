@@ -26,6 +26,13 @@ public class ArtistServiceImpl implements ArtistService {
     }
 
     @Override
+    public Artist getArtist(long artistId) {
+        Query query = new Query();
+        query.addCriteria(Criteria.where("_id").is(artistId));
+        return mongoTemplate.findOne(query, Artist.class, artistCollectionName);
+    }
+
+    @Override
     public boolean isArtistExists(Artist artist) {
         Query query = new Query();
         query.addCriteria(Criteria.where("firstName").is(artist.getFirstName()));
@@ -38,6 +45,18 @@ public class ArtistServiceImpl implements ArtistService {
         Query query = new Query();
         query.addCriteria(Criteria.where("_id").is(artistId));
         return mongoTemplate.count(query, artistCollectionName) > 0;
+    }
+
+    @Override
+    public void increaseNumberOfModels(long artistId) {
+        Artist artist = getArtist(artistId);
+        artist.increaseModelCount();
+        save(artist);
+    }
+
+    @Override
+    public long getNumberOfArtists() {
+        return mongoTemplate.count(new Query(), artistCollectionName);
     }
 
     @Override

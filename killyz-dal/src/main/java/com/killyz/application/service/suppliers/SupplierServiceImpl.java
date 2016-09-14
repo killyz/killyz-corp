@@ -38,6 +38,11 @@ public class SupplierServiceImpl implements SupplierService {
     }
 
     @Override
+    public long getNumberOfSuppliers() {
+        return mongoTemplate.count(new Query(), supplierCollectionName);
+    }
+
+    @Override
     public boolean isSupplierExists(String supplierNickName) {
         Query query = new Query();
         query.addCriteria(Criteria.where("nickName").is(supplierNickName));
